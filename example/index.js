@@ -3,15 +3,25 @@ import FullscreenWrapper from './../src';
 
 
 class Example extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      fullscreen: false
+    };
+  }
 
-  onFullscreen() {
-    debugger
+  toggleFullscreen() {
+    this.setState({fullscreen: !this.state.fullscreen});
+  }
+
+  onFullscreen(fullscreen) {
+    this.setState({fullscreen: fullscreen});
   }
 
   render() {
     return (
-      <FullscreenWrapper fullscreen={false} expand={false} onFullscreen={this.onFullscreen.bind(this)}>
-        <span style={{background: 'red'}}>foo</span>
+      <FullscreenWrapper fullscreen={this.state.fullscreen} expand={false} onFullscreen={this.onFullscreen.bind(this)}>
+        <span style={{background: 'red', cursor: 'pointer'}} onClick={this.toggleFullscreen.bind(this)}>foo</span>
       </FullscreenWrapper>
     )
   }
