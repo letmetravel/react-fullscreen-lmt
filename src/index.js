@@ -26,11 +26,14 @@ export default class FullscreenWrapper extends Component {
   }
 
   render() {
-    const {fullscreen} = this.props;
+    const fullscreenStyle = {position: 'absolute', top: '0px', bottom: '0px', left: '0px', right: '0px'};
+    const {fullscreen, expand} = this.props;
+    const child = (fullscreen && expand) ?
+      React.cloneElement(this.props.children, {style: fullscreenStyle}) :
+      this.props.children;
+
     return (
-      <div ref="wrapper" className="fullscreen-wrapper">
-        {this.props.children}
-      </div>
+      <div ref="wrapper" style={fullscreen ? fullscreenStyle : null}>{child}</div>
     );
   }
 }

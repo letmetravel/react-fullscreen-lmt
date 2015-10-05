@@ -20,9 +20,12 @@ class Example extends Component {
 
   render() {
     return (
-      <FullscreenWrapper fullscreen={this.state.fullscreen} expand={false} onFullscreen={this.onFullscreen.bind(this)}>
-        <span style={{background: 'red', cursor: 'pointer'}} onClick={this.toggleFullscreen.bind(this)}>foo</span>
-      </FullscreenWrapper>
+      <div>
+        <FullscreenWrapper fullscreen={this.state.fullscreen} expand={true} onFullscreen={this.onFullscreen.bind(this)}>
+          <span className="fullscreen-element" onClick={this.toggleFullscreen.bind(this)}>fullscreen expand</span>
+        </FullscreenWrapper>
+        <span>none</span>
+      </div>
     )
   }
 }
