@@ -16,6 +16,7 @@ export default class FullscreenWrapper extends Component {
 
   onFullscreen() {
     const {onFullscreen} = this.props;
+    window.dispatchEvent(new Event('resize'));
     onFullscreen(utils.isFullScreen(document));
   }
 
