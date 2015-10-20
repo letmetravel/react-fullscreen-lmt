@@ -4,14 +4,19 @@ import utils from './fullscreenUtils';
 
 export default class FullscreenWrapper extends Component {
   componentDidMount() {
-    document.addEventListener("fullscreeneventchange", this.onFullscreen.bind(this));
-    document.addEventListener("mozfullscreenchange", this.onFullscreen.bind(this));
-    document.addEventListener("webkitfullscreenchange", this.onFullscreen.bind(this));
+    this.cacheFullscreenCallback();
+    document.addEventListener("fullscreeneventchange", this.cachedOnFullscreen);
+    document.addEventListener("mozfullscreenchange", this.cachedOnFullscreen);
+    document.addEventListener("webkitfullscreenchange", this.cachedOnFullscreen);
     this.applyFullscreen();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.fullscreen!==this.props.fullscreen) this.applyFullscreen();
+  }
+
+  cacheFullscreenCallback() {
+    this.cachedOnFullscreen = this.onFullscreen.bind(this);
   }
 
   onFullscreen() {
@@ -36,6 +41,12 @@ export default class FullscreenWrapper extends Component {
     return (
       <div ref="wrapper" style={fullscreen ? fullscreenStyle : null}>{child}</div>
     );
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("fullscreeneventchange", this.cachedOnFullscreen);
+    document.removeEventListener("mozfullscreenchange", this.cachedOnFullscreen);
+    document.removeEventListener("webkitfullscreenchange", this.cachedOnFullscreen);
   }
 }
 
