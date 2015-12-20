@@ -27,7 +27,7 @@ export default class FullscreenWrapper extends Component {
 
   applyFullscreen() {
     const {fullscreen} = this.props;
-    const el = this.refs['wrapper'].getDOMNode();
+    const el = this.refs['wrapper'];
     fullscreen ? utils.fullScreen(el) : utils.fullScreenCancel(document);
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "react-fullscreen-lmt",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,9 +10,6 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "react": "^0.13.3"
-  },
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-core": "^5.5.5",
@@ -28,5 +25,9 @@
     "node-libs-browser": "^0.5.2",
     "watchify": "^3.4.0",
     "webpack": "^1.9.10"
+  },
+  "dependencies": {
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
   }
 }

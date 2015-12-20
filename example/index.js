@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import FullscreenWrapper from './../lib';
 
 
@@ -31,4 +32,4 @@ class Example extends Component {
 }
 
 
-React.render(<Example />, document.getElementById('react-content'));
+ReactDOM.render(<Example />, document.getElementById('react-content'));
