@@ -1,6 +1,6 @@
 {
   "name": "react-fullscreen-lmt",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "webpack": "^1.9.10"
   },
   "dependencies": {
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react": "^15.1.0 || ^0.14.3",
+    "react-dom": "^15.1.0 || ^0.14.3"
   }
 }
